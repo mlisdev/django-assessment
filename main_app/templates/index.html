@@ -20,17 +20,28 @@
         <h3>No Widgets Exist</h3>
         <hr>
         {% else %}
-        <table>
-            {% for widget in widgets %}
 
+        <table class="pure-table pure-table-striped">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+                {% for widget in widgets %}
+            <tr>
+                <td>{{ widget.description }}</td>
+                <td> {{widget.quantity }}</td>
+                <td> <a href="{% url 'activities_delete' %}">X</a> </td>
+                {% endfor %}
+            </tr>
 
-            {{ widget.description }}
-            
-            {{widget.quantity }} </li>
-            {% endfor %}
+        </table>
+
         {% endif %}
         </table>
-    <button><a href="{% url 'add_widget'%}">Add a Widget</a></button>
+        <a href="{% url 'add_widget'%}"><button class="pure-button">Add a Widget</button></a>
 
     </body>
 
