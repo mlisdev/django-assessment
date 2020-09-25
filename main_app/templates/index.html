@@ -33,7 +33,7 @@
             <tr>
                 <td>{{ widget.description }}</td>
                 <td> {{widget.quantity }}</td>
-                <td> <a href="{% url 'activities_delete' %}">X</a> </td>
+                <td> <a href="{% url 'delete_widget' widget.id %}">X</a> </td>
                 {% endfor %}
             </tr>
 
@@ -41,7 +41,7 @@
 
         {% endif %}
         </table>
-        <a href="{% url 'add_widget'%}"><button class="pure-button">Add a Widget</button></a>
+        <a href="{% url 'add_widget' %}"><button class="pure-button">Add a Widget</button></a>
 
     </body>
 
