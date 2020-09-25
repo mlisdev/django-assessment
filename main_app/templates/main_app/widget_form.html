@@ -15,23 +15,13 @@
 
     <body>
         <h1>Wacky Widgets</h1>
-
-        {% if widgets|length == 0 %}
-        <h3>No Widgets Exist</h3>
-        <hr>
-        {% else %}
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
         <table>
-            {% for widget in widgets %}
-
-
-            {{ widget.description }}
-            
-            {{widget.quantity }} </li>
-            {% endfor %}
-        {% endif %}
+        {{ form.as_p }}
         </table>
-    <button><a href="{% url 'add_widget'%}">Add a Widget</a></button>
-
-    </body>
-
+        <input type="submit" value="Submit!">
+    </form>
+</body>
 </html>
