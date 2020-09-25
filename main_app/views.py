@@ -7,7 +7,10 @@ from .models import Widget
 # Create your views here.
 def index(request):
     widgets = Widget.objects.all()
-    return render(request, 'index.html', { 'widgets': widgets })
+    totalWidgets = 0
+    for widget in widgets:
+            totalWidgets += widget.quantity 
+    return render(request, 'index.html', { 'widgets': widgets, 'totalWidgets': totalWidgets })
 
 class WidgetCreate(CreateView):
     model = Widget
